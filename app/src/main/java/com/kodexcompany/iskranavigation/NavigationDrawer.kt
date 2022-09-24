@@ -9,9 +9,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import java.time.format.TextStyle
 
 @Composable
 fun DriverHeader(){
@@ -25,14 +25,14 @@ fun DriverHeader(){
 
 }
 @Composable
-fun DriverBody(
-    item: List<MenuItem>,
-    modifier: Modifier,
-    itemTextStyle: androidx.compose.ui.text.TextStyle = androidx.compose.ui.text.TextStyle(fontSize = 18.sp),
+fun DrawerBody(
+    items: List<MenuItem>,
+    modifier: Modifier = Modifier ,
+    itemTextStyle: TextStyle = TextStyle(fontSize = 18.sp),
     onItemClick: (MenuItem)-> Unit
     ){
     LazyColumn(modifier){
-        items(item){ item ->  
+        items(items){ item ->
             Row(modifier = Modifier
                 .fillMaxWidth()
                 .clickable {
@@ -45,11 +45,11 @@ fun DriverBody(
                     contentDescription = item.contentDescription
                 )
                 Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = item.title,
-                        style = itemTextStyle,
+                Text(
+                    text = item.title,
+                    style = itemTextStyle,
                     modifier = Modifier.weight(1f)
-                    )
+                )
             }
         }
     }
