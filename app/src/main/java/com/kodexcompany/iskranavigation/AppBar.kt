@@ -1,12 +1,14 @@
 package com.kodexcompany.iskranavigation
 
-import android.graphics.drawable.Icon
 import androidx.compose.material.*
+import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import org.w3c.dom.Text
+import androidx.wear.compose.material.Icon
+import androidx.wear.compose.material.MaterialTheme
 
 @Composable
 fun AppBar(
@@ -16,8 +18,7 @@ fun AppBar(
         title = {
             Text(text = stringResource(id = R.string.app_name))
         },
-        backgroundColor = MaterialTheme.colors.primary,
-        contentColor = MaterialTheme.colors.onPrimary,
+        contentColor = contentColorFor(backgroundColor),
         navigationIcon = {
             IconButton(onClick = onNavigationIconClick) {
                 Icon(
